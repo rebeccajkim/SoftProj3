@@ -313,12 +313,13 @@ public class SampleController {
     @param event
     */
     void importFile(ActionEvent event) {
+    	FileChooser chooser = new FileChooser();
+    	chooser.setTitle("Import File");
+    	chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"), //**idk wtf this is
+    			new FileChooser.ExtensionFilter("All Files", "*.*"));
+    	Stage stage = new Stage();
+    		
     	try {
-    		FileChooser chooser = new FileChooser();
-    		chooser.setTitle("Import File");
-    		chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"),
-    				new FileChooser.ExtensionFilter("All Files", "*.*"));
-    		Stage stage = new Stage();
     		File file = chooser.showOpenDialog(stage);
     		String filePath = file.getAbsolutePath();
     		String fileName = file.getName();
@@ -377,8 +378,34 @@ public class SampleController {
     }
     
     /**
-    
-     */
+    The method exports the database from the file.
+    @param event
+    */
+    void exportFile(ActionEvent event) {
+    	FileChooser chooser = new FileChooser();
+    	chooser.setTitle("Export File");
+    	chooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"),
+    			new ExtensionFilter("All Files", "*.*"));
+    	Stage stage = new Stage();
+    	try {
+    		File file = chooser.showSaveDialog(stage);
+    		String filePath = file.getAbsolutePath();
+    		String fileName = file.getName();
+    		company.exportDatabase(filePath);
+    		if(!TextAreaID.getText().isEmpty()) {
+    			messageArea1.append("\n");
+    		}
+    		messageArea1.append("File exported.");
+    		TextAreaID.setText(messageArea1.toString());
+    	}
+    	catch (NullPointerException e) {
+    		if(!TextAreaID.getText().isEmpty()) {
+    			messageArea1.append("\n");
+    		}
+    		messageArea1.append("No file was selected.");
+    		TextAreaID.setText(messageArea1.toString());
+    	}
+    }
     
 
 }

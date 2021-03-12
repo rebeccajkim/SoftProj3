@@ -1,5 +1,8 @@
 package project3;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
 /**
 The company class stores all the employees in an array-based list. These employees can 
 be added, removed, checked out, have payments processed, and printed in a list.
@@ -335,9 +338,20 @@ public class Company { //set, process, dept
 	}
 	
 	/**
-	
+	The method exports the database of employees to a path.
+	@param path
 	 */
-	public void exportDatabase() {
-		
+	public void exportDatabase(String path) {
+		try {
+			FileWriter write = new FileWriter(path);
+			BufferedWriter writer = new BufferedWriter(write);
+			writer.write(emplist[0].toString());
+			for(int i=1; i<numEmployee; i++) {
+				writer.append(emplist[i].toString() + "\n"); //**make sure its part/full toString not just employee
+			}
+			writer.close();
+		}
+		catch (IOException e) {
+		}
 	}
 }
