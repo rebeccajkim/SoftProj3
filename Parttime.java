@@ -10,7 +10,7 @@ attributes of a parttime employee which will help calculate a parttime employee'
 */
 public class Parttime extends Employee {
 
-	private double hours;
+	private int hours;
 	private double hourlyRate;
 	
 	/**
@@ -30,7 +30,7 @@ public class Parttime extends Employee {
 	to calculate the employee's final payment and be used in other classes.
 	@return employee's hours worked
 	*/
-	public double getHours() {
+	public int getHours() {
 		return hours;
 	}
 	
@@ -39,7 +39,7 @@ public class Parttime extends Employee {
 	in other  classes.
 	@param employee's payment
 	*/
-	public void setHours(double hours) {
+	public void setHours(int hours) {
 		this.hours=hours;
 	}
 	

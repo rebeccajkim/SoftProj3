@@ -333,4 +333,11 @@ public class Company { //set, process, dept
 			}
 		}
 	}
+	
+	/**
+	
+	 */
+	public void exportDatabase() {
+		
+	}
 }
