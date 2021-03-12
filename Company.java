@@ -158,8 +158,8 @@ public class Company { //set, process, dept
 	in the normal order from the employee list
 	*/
 	public String print() {
-		String result=null;
 		if(numEmployee>0) {
+			String result="";
 			for(int i=0; i<numEmployee; i++) {
 				result=result + emplist[i].toString() + "\n"; //**make sure its part/full toString not just employee
 			}
@@ -175,10 +175,10 @@ public class Company { //set, process, dept
 	by the order of their Department from the employee list
 	*/
 	public String printByDepartment() { //**idk how sorted besides just cs ece it
-		String result=null;
 		if(numEmployee>0) {
 			System.out.println("--Printing earning statements by department--");		
 			mergeSortDept(emplist,0,numEmployee-1);
+			String result="";
 			for(int i=0; i<numEmployee; i++) {
 				result=result + "\n" + emplist[i].toString();
 			}
@@ -254,10 +254,10 @@ public class Company { //set, process, dept
 	by the order of date from the employee list
 	*/
 	public String printByDate() { //print the list of books by datePublished (ascending)
-		String result=null;
 		if(numEmployee>0) {
 			System.out.println("--Printing earning statements by date hired--");		
 			mergeSortDate(emplist,0,numEmployee-1);
+			String result="";
 			for(int i=0;i<numEmployee;i++) {
 				result=result + "\n" + emplist[i].toString();
 			}

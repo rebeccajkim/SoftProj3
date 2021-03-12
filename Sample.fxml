@@ -20,16 +20,16 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="342.0" prefWidth="470.0">
                      <children>
-                        <RadioButton layoutX="200.0" layoutY="78.0" mnemonicParsing="false" text="CS" />
-                        <RadioButton layoutX="307.0" layoutY="78.0" mnemonicParsing="false" text="IT" />
-                        <RadioButton layoutX="399.0" layoutY="78.0" mnemonicParsing="false" text="ECE" />
+                        <RadioButton fx:id="csID" layoutX="200.0" layoutY="78.0" mnemonicParsing="false" text="CS" />
+                        <RadioButton fx:id="itID" layoutX="307.0" layoutY="78.0" mnemonicParsing="false" text="IT" />
+                        <RadioButton fx:id="eceID" layoutX="399.0" layoutY="78.0" mnemonicParsing="false" text="ECE" />
                         <Text layoutX="71.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="54.803401947021484" />
                         <Text layoutX="75.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department" />
                         <TextField fx:id="name" layoutX="200.0" layoutY="14.0" prefHeight="25.0" prefWidth="219.0" />
                         <Text layoutX="78.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Hired" />
-                        <RadioButton layoutX="72.0" layoutY="188.0" mnemonicParsing="false" text="Full Time" />
-                        <RadioButton layoutX="218.0" layoutY="188.0" mnemonicParsing="false" text="Part Time" />
-                        <RadioButton layoutX="365.0" layoutY="188.0" mnemonicParsing="false" text="Management" />
+                        <RadioButton fx:id="FullTimeID" layoutX="72.0" layoutY="188.0" mnemonicParsing="false" text="Full Time" />
+                        <RadioButton fx:id="PartTimeID" layoutX="218.0" layoutY="188.0" mnemonicParsing="false" text="Part Time" />
+                        <RadioButton fx:id="ManagementID" layoutX="365.0" layoutY="188.0" mnemonicParsing="false" text="Management" />
                         <Text layoutX="71.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Annual Salary" />
                         <TextField fx:id="annSal" layoutX="200.0" layoutY="227.0" prefHeight="25.0" prefWidth="219.0" />
                         <Text layoutX="69.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hours Worked" />
