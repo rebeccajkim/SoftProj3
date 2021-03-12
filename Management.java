@@ -24,7 +24,6 @@ public class Management extends Fulltime {
 	public Management(Profile profile, double annualSalary, String role) {
 		super(profile, annualSalary);
 		this.role=role;
-		/*
 		if(role.equals("Manager")) {
 			additionalComp=192.31; //5,000/26
 		}
@@ -34,7 +33,6 @@ public class Management extends Fulltime {
 		else { //Director
 			additionalComp=461.54; //12,000/26
 		}
-		*/
 	}
 	
 	/**
@@ -43,6 +41,8 @@ public class Management extends Fulltime {
 	is just the annual salary divided by 26. 
 	@param role of an employee
 	*/
+	
+	/*
 	public void setRole(String role) {
 		this.role=role;
 		if(role.equals("Manager")) {
@@ -55,6 +55,7 @@ public class Management extends Fulltime {
 			additionalComp=461.54; //12,000/26
 		}
 	}
+	*/
 	
 	/**
 	This method will calculate the final payment for a management employee using their 
