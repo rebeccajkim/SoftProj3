@@ -18,10 +18,10 @@ public class Date implements Comparable<Date> {
 	@param date in string form
 	*/
 	public Date(String date) { //taking mm/dd/yyyy and create a Date object
-		StringTokenizer st=new StringTokenizer(date,"/",false);
-		month=Integer.parseInt(st.nextToken()); 
-		day=Integer.parseInt(st.nextToken());
-		year=Integer.parseInt(st.nextToken());
+		StringTokenizer st = new StringTokenizer(date, "/", false);
+		month = Integer.parseInt(st.nextToken()); 
+		day = Integer.parseInt(st.nextToken());
+		year = Integer.parseInt(st.nextToken());
 	}
 	
 	/**
@@ -65,48 +65,51 @@ public class Date implements Comparable<Date> {
 	@return true if date is valid, false if invalid
 	*/
 	public boolean isValid() {
-		int MIN_YEAR=1900; int JAN=1; int FEB=2; int MAR=3; int APR=4; int MAY=5; int JUN=6; int JUL=7; int AUG=8; 
-			int SEP=9; int OCT=10; int NOV=11; int DEC=12; int LOW_DAY=1; int NO_LEAP=28; int YES_LEAP=29; 
-			int LOW_END=30; int HIGH_END=31; int FIRST_CHECK=4; int SECOND_CHECK=100; int THIRD_CHECK=400; 
+		final static int MIN_YEAR = 1900; final static int JAN = 1; final static int FEB = 2; final static int MAR = 3;
+			final static int APR = 4; final static int MAY = 5; final static int JUN = 6; final static int JUL = 7;
+			final static int AUG = 8; final static int SEP = 9; final static int OCT = 10; final static int NOV = 11;
+			final static int DEC = 12; final static int LOW_DAY = 1; final static int NO_LEAP = 28; 
+			final static int YES_LEAP = 29; final static int LOW_END = 30; final static int HIGH_END = 31; 
+			final static int FIRST_CHECK = 4; final static int SECOND_CHECK = 100; final static int THIRD_CHECK = 400; 
 			
-		if(year<MIN_YEAR || year>Calendar.getInstance().get(Calendar.YEAR)
-			|| (year==Calendar.getInstance().get(Calendar.YEAR) && month>(Calendar.getInstance().get(Calendar.MONTH)+1))
-			|| (year==Calendar.getInstance().get(Calendar.YEAR) && month==(Calendar.getInstance().get(Calendar.MONTH)+1)
-				&& day>Calendar.getInstance().get(Calendar.DAY_OF_MONTH))) {
+		if (year < MIN_YEAR || year > Calendar.getInstance().get(Calendar.YEAR)
+			|| (year == Calendar.getInstance().get(Calendar.YEAR) && month > (Calendar.getInstance().get(Calendar.MONTH) + 1))
+			|| (year == Calendar.getInstance().get(Calendar.YEAR) && month == (Calendar.getInstance().get(Calendar.MONTH) + 1)
+				&& day > Calendar.getInstance().get(Calendar.DAY_OF_MONTH))) {
 			return false;
 		}
-		else if((month==JAN || month==MAR || month==MAY || month==JUL || month==AUG || month==OCT
-			|| month==DEC) && day>HIGH_END) {
+		else if ((month == JAN || month == MAR || month == MAY || month == JUL || month == AUG || month == OCT
+			|| month == DEC) && day > HIGH_END) {
 			return false;
 		}
-		else if((month==APR || month==JUL || month==SEP || month==NOV) && day>LOW_END) {
+		else if ((month == APR || month == JUL || month == SEP || month == NOV) && day > LOW_END) {
 			return false;
 		}
-		else if(month>DEC || month<JAN || day<LOW_DAY) {
+		else if (month > DEC || month < JAN || day < LOW_DAY) {
 			return false;
 		}
-		else if(month==FEB) {
-			if(year%FIRST_CHECK==0) {
-				if(year%SECOND_CHECK==0) {
-					if(year%THIRD_CHECK==0) {
-						if(day>YES_LEAP) {
+		else if (month == FEB) {
+			if (year % FIRST_CHECK == 0) {
+				if (year % SECOND_CHECK == 0) {
+					if (year % THIRD_CHECK == 0) {
+						if (day > YES_LEAP) {
 							return false;
 						}
 					}
 					else {
-						if(day>NO_LEAP) {
+						if (day > NO_LEAP) {
 							return false;
 						}
 					}
 				}
 				else {
-					if(day>YES_LEAP) {
+					if (day > YES_LEAP) {
 						return false;
 					}
 				}
 			}
 			else {
-				if(day>NO_LEAP) {
+				if (day > NO_LEAP) {
 					return false;
 				}
 			}
@@ -122,13 +125,14 @@ public class Date implements Comparable<Date> {
 	*/
 	@Override
 	public int compareTo(Date date) { 
-		if(this.year==date.getYear() && this.month==date.getMonth() && day==date.getDay()) {
+		if (this.year == date.getYear() && this.month == date.getMonth() && day == date.getDay()) {
 			return 0;
 		}
-		else if((this.year<date.getYear()) || (this.year==date.getYear() 
-				&& this.month<date.getMonth()) || (this.year==date.getYear() 
-				&& this.month==date.getMonth() && this.day<date.getDay())) {
-			return -1;
+		else if ((this.year < date.getYear()) || (this.year == date.getYear() 
+				&& this.month < date.getMonth()) || (this.year == date.getYear() 
+				&& this.month == date.getMonth() && this.day < date.getDay())) {
+			final static int LOWER = -1;
+			return LOWER;
 		}
 		else {
 			return 1;

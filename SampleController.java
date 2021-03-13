@@ -272,7 +272,13 @@ public class SampleController {
     */
     void print(ActionEvent event) { //either separate or combine like did for add
     	try {
-    		messageArea1.appendText(company.print() + "\n");
+    		if (company.getNumEmployee() > 0) {
+    			messageArea1.appendText("--Printing earning statements-- \n");
+    			messageArea1.appendText(company.print());
+    		}
+    		else {
+    			messageArea1.appendText("Employee database is empty. \n");
+    		}
     	}
     	catch (Exception e) {
     		messageArea1.appendText("Error. \n");
@@ -286,7 +292,13 @@ public class SampleController {
     */
     void printByDept(ActionEvent event) {
     	try {
-    		messageArea1.appendText(company.printByDepartment() + "\n");
+    		if (company.getNumEmployee() > 0) {
+    			messageArea1.appendText("--Printing earning statements-- \n");
+    			messageArea1.appendText(company.printByDepartment());
+    		}
+    		else {
+    			messageArea1.appendText("Employee database is empty. \n");
+    		}
     	}
     	catch (Exception e) {
     		messageArea1.appendText("Error. \n");
@@ -300,7 +312,13 @@ public class SampleController {
     */
     void printByDate(ActionEvent event) {
     	try {
-    		messageArea1.appendText(company.printByDate() + "\n");
+    		if (company.getNumEmployee() > 0) {
+    			messageArea1.appendText("--Printing earning statements-- \n");
+    			messageArea1.appendText(company.printByDate());
+    		}
+    		else {
+    			messageArea1.appendText("Employee database is empty. \n");
+    		}
     	}
     	catch (Exception e) {
     		messageArea1.appendText("Error. \n");
@@ -325,18 +343,18 @@ public class SampleController {
     		String fileName = file.getName();
     		File database = new File(filePath);
     		
-    		Scanner scanner=new Scanner(database); //**no errors ig
-    		String line=scanner.nextLine();
+    		Scanner scanner = new Scanner(database); //**no errors ig
+    		String line = scanner.nextLine();
     		while (scanner.hasNextLine()) {
-    			StringTokenizer st=new StringTokenizer(line,",",false);
-    			String command=st.nextToken(); 
+    			StringTokenizer st = new StringTokenizer(line, ",", false);
+    			String command = st.nextToken(); 
     			if (command.equals("P")) { //part-time employee 
     				String name = st.nextToken();
     				String depCode = st.nextToken();
     				String date = st.nextToken();
     				double hourlyRate = Double.parseDouble(st.nextToken());
-    				Profile profile=new Profile(name, depCode, date);
-    				Parttime parttime=new Parttime(profile, hourlyRate); 
+    				Profile profile = new Profile(name, depCode, date);
+    				Parttime parttime = new Parttime(profile, hourlyRate); 
 					company.add(parttime);
 				} 
     			else if (command.equals("F")) { //full-time employee
@@ -344,7 +362,7 @@ public class SampleController {
     				String depCode = st.nextToken();
     				String date = st.nextToken();
     				double annualSalary = Double.parseDouble(st.nextToken());
-    				Fulltime fulltime=new Fulltime(new Profile(name, depCode, date), annualSalary);
+    				Fulltime fulltime = new Fulltime(new Profile(name, depCode, date), annualSalary);
     				company.add(fulltime);
 				}	 		
     			else if(command.equals("AM")) { //management
@@ -353,12 +371,12 @@ public class SampleController {
     				String date = st.nextToken();
     				double annualSalary = Double.parseDouble(st.nextToken());
     				int intCode = Integer.parseInt(st.nextToken());
-    				final static int MANAGER_CODE=1;
-    				final static int DEPARTMENT_HEAD_CODE=2;
-    				final static int DIRECTOR_CODE=3;
-    				Management management=null;
-    				if (intCode==MANAGER_CODE) {
-						management=new Management(new Profile(name, depCode, date), annualSalary, "Manager");
+    				final static int MANAGER_CODE = 1;
+    				final static int DEPARTMENT_HEAD_CODE = 2;
+    				final static int DIRECTOR_CODE = 3;
+    				Management management = null;
+    				if (intCode == MANAGER_CODE) {
+						management = new Management(new Profile(name, depCode, date), annualSalary, "Manager");
 					}
 					else if (intCode == DEPARTMENT_HEAD_CODE) {
 						management = new Management(new Profile(name, depCode, date), annualSalary, "Department Head");

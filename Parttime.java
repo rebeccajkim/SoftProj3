@@ -21,8 +21,8 @@ public class Parttime extends Employee {
 	*/
 	public Parttime(Profile profile, double hourlyRate) {
 		super(profile);
-		hours=0;
-		this.hourlyRate=hourlyRate;
+		hours = 0;
+		this.hourlyRate = hourlyRate;
 	}
 	
 	/**
@@ -40,7 +40,7 @@ public class Parttime extends Employee {
 	@param employee's payment
 	*/
 	public void setHours(int hours) {
-		this.hours=hours;
+		this.hours = hours;
 	}
 	
 	/**
@@ -50,14 +50,14 @@ public class Parttime extends Employee {
 	*/
 	@Override 
 	public void calculatePayment() { 
-		double MAX_HOURS_PERIOD=80;
-		double OVERTIME_RATE=1.5; //check in payrollprocessing or company that its not over 100 hours
-		if(hours<=MAX_HOURS_PERIOD) {
-			setPayment(getPayment()+hours*hourlyRate);
+		final static double MAX_HOURS_PERIOD = 80;
+		final static double OVERTIME_RATE = 1.5; //check in payrollprocessing or company that its not over 100 hours
+		if (hours <= MAX_HOURS_PERIOD) {
+			setPayment(getPayment() + hours*hourlyRate);
 		}
 		else {
-			setPayment(getPayment()+MAX_HOURS_PERIOD*hourlyRate);
-			setPayment(getPayment()+OVERTIME_RATE*(hours-MAX_HOURS_PERIOD)*hourlyRate);
+			setPayment(getPayment() + MAX_HOURS_PERIOD * hourlyRate);
+			setPayment(getPayment() + OVERTIME_RATE * (hours - MAX_HOURS_PERIOD) * hourlyRate);
 		}
 	}
 	
@@ -70,8 +70,8 @@ public class Parttime extends Employee {
 	*/
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Fulltime) {
-			Parttime parttime=(Parttime) obj;
+		if (obj instanceof Fulltime) {
+			Parttime parttime = (Parttime) obj;
 			return parttime.getProfile().equals(this.getProfile());
 		}
 		return false;
@@ -85,8 +85,8 @@ public class Parttime extends Employee {
 	*/
 	@Override 
 	public String toString() { 
-		String pattern="###,##0.00";
-		DecimalFormat df=new DecimalFormat(pattern);
+		String pattern = "###,##0.00";
+		DecimalFormat df = new DecimalFormat(pattern);
 		return super.toString() + "::Payment $" + df.format(getPayment()) + "::PART TIME::Hourly Rate $" 
 				+ df.format(hourlyRate) + "::Hours worked this period: " + hours;
 	} 

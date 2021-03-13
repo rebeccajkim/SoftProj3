@@ -16,8 +16,8 @@ public class Employee {
 	@param employee's profile
 	*/
 	public Employee(Profile profile) {
-		this.profile=profile;
-		payment=0;
+		this.profile = profile;
+		payment = 0;
 	}
 	
 	/**
@@ -42,7 +42,7 @@ public class Employee {
 	@param employee's payment
 	*/
 	public void setPayment(double payment) {
-		this.payment=payment;
+		this.payment = payment;
 	}
 		
 	/**
@@ -59,8 +59,8 @@ public class Employee {
 	*/
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Employee) {
-			Employee employee=(Employee) obj;
+		if (obj instanceof Employee) {
+			Employee employee = (Employee) obj;
 			return employee.profile.equals(this.profile);
 		}
 		return false;

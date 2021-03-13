@@ -36,13 +36,13 @@
                         <TextField fx:id="hrsWorked" layoutX="199.0" layoutY="287.0" prefHeight="25.0" prefWidth="71.0" />
                         <Text layoutX="299.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate" />
                         <TextField fx:id="rate" layoutX="345.0" layoutY="287.0" prefHeight="25.0" prefWidth="75.0" />
-                        <RadioButton layoutX="50.0" layoutY="346.0" mnemonicParsing="false" text="Manager" />
-                        <RadioButton layoutX="171.0" layoutY="346.0" mnemonicParsing="false" text="Department Head" />
-                        <RadioButton layoutX="365.0" layoutY="346.0" mnemonicParsing="false" text="Director" />
+                        <RadioButton fx:id="managerID" layoutX="50.0" layoutY="346.0" mnemonicParsing="false" text="Manager" />
+                        <RadioButton fx:id="depheadID" layoutX="171.0" layoutY="346.0" mnemonicParsing="false" text="Department Head" />
+                        <RadioButton fx:id="directorID" layoutX="365.0" layoutY="346.0" mnemonicParsing="false" text="Director" />
                         <Button fx:id="clearButton" layoutX="25.0" layoutY="387.0" mnemonicParsing="false" text="Clear" />
                         <Button fx:id="addButton" layoutX="114.0" layoutY="386.0" mnemonicParsing="false" onAction="#add" text="Add Employee" />
-                        <Button fx:id="removeButton" layoutX="266.0" layoutY="386.0" mnemonicParsing="false" text="Remove Employee" />
-                        <Button fx:id="sethrButton" layoutX="455.0" layoutY="386.0" mnemonicParsing="false" text="Set Hours" />
+                        <Button fx:id="removeButton" layoutX="266.0" layoutY="386.0" mnemonicParsing="false" onAction="#remove" text="Remove Employee" />
+                        <Button fx:id="sethrButton" layoutX="455.0" layoutY="386.0" mnemonicParsing="false" onAction="#setHours" text="Set Hours" />
                         <TextArea fx:id="messageArea1" layoutX="-1.0" layoutY="448.0" prefHeight="200.0" prefWidth="600.0" />
                         <DatePicker fx:id="dateHired" layoutX="199.0" layoutY="132.0" prefHeight="25.0" prefWidth="218.0" />
                      </children>
@@ -53,15 +53,17 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Text layoutX="114.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECT COMMAND FROM THE MENU" wrappingWidth="337.99017333984375">
+                        <Text layoutX="131.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECT COMMAND FROM THE MENU" wrappingWidth="337.99017333984375">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
                         <Button layoutX="77.0" layoutY="117.0" mnemonicParsing="false" text="FILE" />
-                        <Button layoutX="234.0" layoutY="117.0" mnemonicParsing="false" text="PRINT" />
-                        <Button layoutX="402.0" layoutY="117.0" mnemonicParsing="false" text="PAYMENT" />
+                        <Button fx:id="printEmp" layoutX="198.0" layoutY="91.0" mnemonicParsing="false" onAction="#print" text="PRINT EMPLOYEES" />
+                        <Button fx:id="paymentCalc" layoutX="415.0" layoutY="117.0" mnemonicParsing="false" onAction="#calculatePayment" text="CALCULATE " />
                         <TextArea fx:id="messageArea2" layoutX="-2.0" layoutY="285.0" prefHeight="287.0" prefWidth="606.0" />
+                        <Button fx:id="printDep" layoutX="211.0" layoutY="158.0" mnemonicParsing="false" onAction="#printByDept" text="PRINT BY DEP" />
+                        <Button fx:id="printDate" layoutX="207.0" layoutY="234.0" mnemonicParsing="false" onAction="#printByDate" text="PRINT BY DATE" />
                      </children>
                   </AnchorPane>
             </content>

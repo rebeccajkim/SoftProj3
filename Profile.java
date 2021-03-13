@@ -18,9 +18,9 @@ public class Profile {
 	@param employee's profile
 	*/
 	public Profile(String name, String department, String date) {
-		this.name=name;
-		this.department=department;
-		dateHired=new Date(date);
+		this.name = name;
+		this.department = department;
+		dateHired = new Date(date);
 	}
 	
 	/**
@@ -54,7 +54,7 @@ public class Profile {
 	@param employee name
 	*/
 	public void setName(String name) {
-		this.name=name;
+		this.name = name;
 	}
 	
 	/**
@@ -63,7 +63,7 @@ public class Profile {
 	@param department code
 	*/
 	public void setDepartment(String department) {
-		this.department=department;
+		this.department = department;
 	}
 	
 	/**
@@ -72,7 +72,7 @@ public class Profile {
 	@param date when employee joined
 	*/
 	public void setDate(Date dateHired) {
-		this.dateHired=dateHired;
+		this.dateHired = dateHired;
 	}
 	
 	/**
@@ -81,7 +81,8 @@ public class Profile {
 	*/
 	@Override
 	public String toString() {
-		return name + "::" + department + "::" + dateHired.getMonth() + "/" + dateHired.getDay() + "/" + dateHired.getYear();
+		return name + "::" + department + "::" + dateHired.getMonth() + "/" + dateHired.getDay() 
+			+ "/" + dateHired.getYear();
 	}
 	
 	/**
@@ -91,10 +92,11 @@ public class Profile {
 	*/
 	@Override
 	public boolean equals(Object obj) { 
-		if(obj instanceof Profile) {
-			Profile profile=(Profile) obj;
-			if(profile.name.equals(this.name) && profile.department.equals(this.department) && profile.dateHired.getYear()==this.dateHired.getYear()
-					&& profile.dateHired.getMonth()==this.dateHired.getMonth() && profile.dateHired.getDay()==this.dateHired.getDay()) {
+		if (obj instanceof Profile) {
+			Profile profile = (Profile) obj;
+			if (profile.name.equals(this.name) && profile.department.equals(this.department) 
+					&& profile.dateHired.getYear() == this.dateHired.getYear() && profile.dateHired.getMonth() 
+					== this.dateHired.getMonth() && profile.dateHired.getDay() == this.dateHired.getDay()) {
 				return true;
 			}
 			return false;
