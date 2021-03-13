@@ -56,6 +56,7 @@ public class Fulltime extends Employee {
 	repetitive code.
 	@return string description
 	*/
+	/*
 	@Override 
 	public String toString() { 
 		String pattern = "###,##0.00";
@@ -63,4 +64,16 @@ public class Fulltime extends Employee {
 		return super.toString() + "::Payment $" + df.format(getPayment()) + "::FULL TIME::Annual Salary $" 
 				+ df.format(annualSalary);
 	} 
+	*/
+	
+	/**
+	This method creates a string description of a fulltime employee with the import/export database format
+	@return string description
+	*/
+	@Override
+	public String toString() {
+		String pattern = "###,##0.00";
+		DecimalFormat df = new DecimalFormat(pattern);
+		return super.toString() + "," + df.format(annualSalary);
+	}
 }

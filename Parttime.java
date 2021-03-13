@@ -83,11 +83,24 @@ public class Parttime extends Employee {
 	repetitive code.
 	@return string description
 	*/
+	/*
 	@Override 
 	public String toString() { 
 		String pattern = "###,##0.00";
 		DecimalFormat df = new DecimalFormat(pattern);
 		return super.toString() + "::Payment $" + df.format(getPayment()) + "::PART TIME::Hourly Rate $" 
 				+ df.format(hourlyRate) + "::Hours worked this period: " + hours;
+	} 
+	*/
+
+	/**
+	The method creates a string description of a parttime employee with the import/export database format. 
+	@return string description
+	*/
+	@Override
+	public String toString() { 
+		String pattern = "###,##0.00";
+		DecimalFormat df = new DecimalFormat(pattern);
+		return super.toString() + "," + df.format(hourlyRate);
 	} 
 }

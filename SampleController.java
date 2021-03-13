@@ -273,15 +273,15 @@ public class SampleController {
     void print(ActionEvent event) { //either separate or combine like did for add
     	try {
     		if (company.getNumEmployee() > 0) {
-    			messageArea1.appendText("--Printing earning statements-- \n");
-    			messageArea1.appendText(company.print());
+    			messageArea2.appendText("--Printing earning statements-- \n");
+    			messageArea2.appendText(company.print());
     		}
     		else {
-    			messageArea1.appendText("Employee database is empty. \n");
+    			messageArea2.appendText("Employee database is empty. \n");
     		}
     	}
     	catch (Exception e) {
-    		messageArea1.appendText("Error. \n");
+    		messageArea2.appendText("Error. \n");
     	}
     }
     	
@@ -293,15 +293,15 @@ public class SampleController {
     void printByDept(ActionEvent event) {
     	try {
     		if (company.getNumEmployee() > 0) {
-    			messageArea1.appendText("--Printing earning statements-- \n");
-    			messageArea1.appendText(company.printByDepartment());
+    			messageArea2.appendText("--Printing earning statements-- \n");
+    			messageArea2.appendText(company.printByDepartment());
     		}
     		else {
-    			messageArea1.appendText("Employee database is empty. \n");
+    			messageArea2.appendText("Employee database is empty. \n");
     		}
     	}
     	catch (Exception e) {
-    		messageArea1.appendText("Error. \n");
+    		messageArea2.appendText("Error. \n");
     	}
     }
     
@@ -313,15 +313,15 @@ public class SampleController {
     void printByDate(ActionEvent event) {
     	try {
     		if (company.getNumEmployee() > 0) {
-    			messageArea1.appendText("--Printing earning statements-- \n");
-    			messageArea1.appendText(company.printByDate());
+    			messageArea2.appendText("--Printing earning statements-- \n");
+    			messageArea2.appendText(company.printByDate());
     		}
     		else {
-    			messageArea1.appendText("Employee database is empty. \n");
+    			messageArea2.appendText("Employee database is empty. \n");
     		}
     	}
     	catch (Exception e) {
-    		messageArea1.appendText("Error. \n");
+    		messageArea2.appendText("Error. \n");
     	}
     }
     
@@ -331,13 +331,12 @@ public class SampleController {
     @param event
     */
     void importFile(ActionEvent event) {
-    	FileChooser chooser = new FileChooser();
-    	chooser.setTitle("Import File");
-    	chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"), //**idk wtf this is
-    			new FileChooser.ExtensionFilter("All Files", "*.*"));
-    	Stage stage = new Stage();
-    		
     	try {
+    		FileChooser chooser = new FileChooser();
+    		chooser.setTitle("Import File");
+    		chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"), //**idk wtf this is
+    				new FileChooser.ExtensionFilter("All Files", "*.*"));
+    		Stage stage = new Stage();
     		File file = chooser.showOpenDialog(stage);
     		String filePath = file.getAbsolutePath();
     		String fileName = file.getName();
@@ -391,7 +390,7 @@ public class SampleController {
     		scanner.close();
     	}
     	catch (Exception e) {
-    		messageArea1.append("Error. \n");
+    		messageArea2.append("Error. \n");
     	}
     }
     
@@ -400,28 +399,20 @@ public class SampleController {
     @param event
     */
     void exportFile(ActionEvent event) {
-    	FileChooser chooser = new FileChooser();
-    	chooser.setTitle("Export File");
-    	chooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"),
-    			new ExtensionFilter("All Files", "*.*"));
-    	Stage stage = new Stage();
     	try {
+    		FileChooser chooser = new FileChooser();
+    		chooser.setTitle("Export File");
+    		chooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"),
+    				new ExtensionFilter("All Files", "*.*"));
+    		Stage stage = new Stage();
     		File file = chooser.showSaveDialog(stage);
     		String filePath = file.getAbsolutePath();
     		String fileName = file.getName();
     		company.exportDatabase(filePath);
-    		if(!TextAreaID.getText().isEmpty()) {
-    			messageArea1.append("\n");
-    		}
-    		messageArea1.append("File exported.");
-    		TextAreaID.setText(messageArea1.toString());
+    		messageArea2.append("File exported. \n");
     	}
-    	catch (NullPointerException e) {
-    		if(!TextAreaID.getText().isEmpty()) {
-    			messageArea1.append("\n");
-    		}
-    		messageArea1.append("No file was selected.");
-    		TextAreaID.setText(messageArea1.toString());
+    	catch (Exception e) {
+    		messageArea2.append("Error. \n");
     	}
     }
     

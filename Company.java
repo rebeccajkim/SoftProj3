@@ -56,7 +56,7 @@ public class Company { //set, process, dept
 			temp[i] = emplist[i];
 		}
 		emplist = temp;
-	} 
+	}
 	
 	/**
 	Method to add an employee to the employee list. Also, we grow the list capacity 
@@ -325,9 +325,20 @@ public class Company { //set, process, dept
 		try {
 			FileWriter write = new FileWriter(path);
 			BufferedWriter writer = new BufferedWriter(write);
-			writer.write(emplist[0].toString());
-			for(int i = 1; i < numEmployee; i++) {
-				writer.append(emplist[i].toString() + "\n"); //**make sure its part/full toString not just employee
+			for (int i = 0; i < numEmployee; i++) {
+				if (emplist[i] instanceof Fulltime) {
+					if (emplist[i] instanceof Management) {
+						Management management = (Management) emplist[i];
+						writer.append("M," + management.toString() + "\n");
+					}
+					else {
+						Fulltime fulltime = (Fulltime) emplist[i];
+						writer.append("F," + fulltime.toString() + "\n");
+					}
+				else { //parttime
+					Parttime parttime = (Parttime) emplist[i];
+					writer.append("P," + parttime.toString() + "\n");
+				}
 			}
 			writer.close();
 		}

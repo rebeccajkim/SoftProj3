@@ -79,9 +79,22 @@ public class Profile {
 	The method creates a string description of an employee using their profile attributes 
 	@return string description
 	*/
+	/*
 	@Override
 	public String toString() {
 		return name + "::" + department + "::" + dateHired.getMonth() + "/" + dateHired.getDay() 
+			+ "/" + dateHired.getYear();
+	}
+	*/
+	
+	/**
+	The method creates a string description of profile attributes meant in the import/export database
+	format (commas not ::)
+	@return string description
+	*/ 
+	@Override
+	public String toString() {
+		return name + "," + department "," + dateHired.getMonth() + "/" + dateHired.getDay() 
 			+ "/" + dateHired.getYear();
 	}
 	
