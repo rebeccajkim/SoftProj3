@@ -315,9 +315,9 @@ public class Company { //set, process, dept
 	}
 	
 	/**
-	The method exports the database of employees to a path.
-	@param path
-	 */
+	The method exports the database of employees to a path of a file to help it be saved/exported to that file.
+	@param path of the file
+	*/
 	public void exportDatabase(String path) {
 		try {
 			FileWriter write = new FileWriter(path);

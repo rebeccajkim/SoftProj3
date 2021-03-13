@@ -64,8 +64,11 @@ public class SampleController {
 	    
 	@FXML
 	/**
-	Event Handler for the add button
-	@param event
+	This method adds an employee (fulltime, parttime, management) to the company based on
+	the information given in Employee Management and after pressing the Add Employee button. There is an
+	error message if the date hired is invalid, the employee is already in the company, or not enough 
+	information is given.
+	@param event of information given
 	*/
 	void add(ActionEvent event) {
 	   	//messageArea.clear(); //clear the TextArea.
@@ -171,8 +174,10 @@ public class SampleController {
 	
     @FXML
     /**
-    Event Handler for the remove button
-    @param event
+    This method removes an employee from the database based on the information given in Employee Management and after pressing
+    the Remove Employee button. There is an error message if the employee database is empty, the employee doesn't exist, or not
+    enough information is given.
+    @param event of information given
     */
     void remove(ActionEvent event) {
     	try {
@@ -210,8 +215,8 @@ public class SampleController {
 
     @FXML
     /**
-    Event Handler for the payment button
-    @param event
+    This method calculates payments when the Calculate button is pressed.
+    @param event of button pressed
     */
     void calculate(ActionEvent event) {
     	try {
@@ -225,8 +230,10 @@ public class SampleController {
     	
     @FXML
     /**
-    Event Handler for the set hours button
-    @param event
+    This method sets the hours of a parttime worker based on the information given about the parttime worker in Employee
+    Management and after pressing the Set Hours button. There is an error message if working hours is below 0 or above 100 or
+    if not enough information is given.
+    @param event of information given
     */
     void setHours(ActionEvent event) {
     	try {
@@ -267,10 +274,11 @@ public class SampleController {
 
     @FXML
     /**
-    Event Handler for the print button
-    @param event
+    The method prints all the employees in the company after the Print Employees button is pressed. If there are no employees yet, there's an
+    error message.
+    @param event of button pressed
     */
-    void print(ActionEvent event) { //either separate or combine like did for add
+    String print(ActionEvent event) { //either separate or combine like did for add
     	try {
     		if (company.getNumEmployee() > 0) {
     			messageArea2.appendText("--Printing earning statements-- \n");
@@ -279,6 +287,7 @@ public class SampleController {
     		else {
     			messageArea2.appendText("Employee database is empty. \n");
     		}
+    		return company.print();
     	}
     	catch (Exception e) {
     		messageArea2.appendText("Error. \n");
@@ -287,10 +296,11 @@ public class SampleController {
     	
     @FXML
     /**
-    Event Handler for the print by department button
-    @param event
+    The method prints the employees ordered by department after the Print By Dep button is pressed. If there are no employees yet, there's an
+    error message.
+    @param event of button pressed
     */
-    void printByDept(ActionEvent event) {
+    String printByDept(ActionEvent event) {
     	try {
     		if (company.getNumEmployee() > 0) {
     			messageArea2.appendText("--Printing earning statements-- \n");
@@ -299,6 +309,7 @@ public class SampleController {
     		else {
     			messageArea2.appendText("Employee database is empty. \n");
     		}
+    		return company.printByDepartment();
     	}
     	catch (Exception e) {
     		messageArea2.appendText("Error. \n");
@@ -307,10 +318,11 @@ public class SampleController {
     
     @FXML
     /**
-    Event Handler for the print by date button
-    @param event
+    The method prints the employees in order of date hired after the Print By Date button is pressed. If there are no employees yet, there's an
+    error message.
+    @param event of button pressed
     */
-    void printByDate(ActionEvent event) {
+    String printByDate(ActionEvent event) {
     	try {
     		if (company.getNumEmployee() > 0) {
     			messageArea2.appendText("--Printing earning statements-- \n");
@@ -319,6 +331,7 @@ public class SampleController {
     		else {
     			messageArea2.appendText("Employee database is empty. \n");
     		}
+    		return company.printByDate();
     	}
     	catch (Exception e) {
     		messageArea2.appendText("Error. \n");
@@ -327,8 +340,8 @@ public class SampleController {
     
     @FXML
     /**
-    This method imports the database from the file.
-    @param event
+    This method imports the database from the file chosen to be opened after the Import button is pressed.
+    @param event of button pressed
     */
     void importFile(ActionEvent event) {
     	try {
@@ -395,8 +408,8 @@ public class SampleController {
     }
     
     /**
-    The method exports the database from the file.
-    @param event
+    The method exports the database from the file chosen for the data to be saved to after the Export button is pressed.
+    @param event of button pressed
     */
     void exportFile(ActionEvent event) {
     	try {
