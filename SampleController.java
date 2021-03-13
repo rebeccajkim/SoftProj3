@@ -19,6 +19,12 @@ import project2.Management;
 import project2.Parttime;
 import project2.Profile;
 
+/**
+This class controls the JavaFX file so that pressing certain buttons and entering certain information inputs the correct data into the employee
+database. There are buttons for adding and removing employees, calculating payments, setting hours for a parttime worker, printing, and inputting
+and outputting to and from a file. The class goes along with the Sample file to "control" it and help us use it for our database.
+@author mayeesha, rebecca
+*/
 public class SampleController {
 	Company company = new Company();
 		
