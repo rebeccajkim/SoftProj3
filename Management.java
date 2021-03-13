@@ -90,7 +90,7 @@ public class Management extends Fulltime {
 	repetitive code.
 	@return string description
 	*/
-	/*
+	
 	@Override 
 	public String toString() { 
 		String pattern = "###,##0.00";
@@ -98,12 +98,13 @@ public class Management extends Fulltime {
 		return super.toString() + "::" + role + " Compensation $" 
 				+ df.format(additionalComp); 
 	} 
-	*/
+	
 	
 	/**
 	The method creates a string description of a management employee with the import/export database format
 	@return string description
 	*/
+	/*
 	@Override
 	public String toString() { 
 		String pattern = "###,##0.00";
@@ -123,5 +124,6 @@ public class Management extends Fulltime {
 		}
 		return super.toString() + "," + roleCode;
 	} 
+	*/
 	
 }

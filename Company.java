@@ -79,13 +79,12 @@ public class Company { //set, process, dept
 					ptr--;
 				}
 				emplist[ptr + 1] = employee;
-				
 			}
 			numEmployee++; //increase employee count
 			return true;
 		}
 		return false; //already found employee there
-	} 
+	}
 	
 	/**
 	The method to remove an employee from the employee list. The employee is found using 
@@ -107,9 +106,7 @@ public class Company { //set, process, dept
 			numEmployee--;
 			return true;
 		}
-		else {
-			return false;
-		}
+		return false;		
 	}
 	
 	/**
@@ -326,6 +323,8 @@ public class Company { //set, process, dept
 			FileWriter write = new FileWriter(path);
 			BufferedWriter writer = new BufferedWriter(write);
 			for (int i = 0; i < numEmployee; i++) {
+				
+				/*
 				if (emplist[i] instanceof Fulltime) {
 					if (emplist[i] instanceof Management) {
 						Management management = (Management) emplist[i];
@@ -339,6 +338,9 @@ public class Company { //set, process, dept
 					Parttime parttime = (Parttime) emplist[i];
 					writer.append("P," + parttime.toString() + "\n");
 				}
+				*/
+				
+				writer.append(emplist[i].toString() + "\n");
 			}
 			writer.close();
 		}

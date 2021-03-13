@@ -165,7 +165,7 @@ public class SampleController {
 	   	}	
 	    //Show the error message with a pop-up window.
 	    catch (Exception e) {
-			messageArea1.appendText("Error.\n");
+			messageArea1.appendText("Error. Please recheck inputs! \n");
 	    }
 	}
 	
@@ -204,7 +204,7 @@ public class SampleController {
 			}
     	}
     	catch (Exception e) {
-    		messageArea1.appendText("Error. \n");
+    		messageArea1.appendText("Error. Please recheck input! \n");
     	}
     }
 
@@ -216,10 +216,10 @@ public class SampleController {
     void calculate(ActionEvent event) {
     	try {
     		company.processPayments();
-    		messageArea1.appendText("Calculation of employee payments is done \n");
+    		messageArea2.appendText("Calculation of employee payments is done \n");
     	}
     	catch (Exception e) {
-    		messageArea1.appendText("Error. \n");
+    		messageArea2.appendText("Error. \n");
     	}
     }
     	
@@ -261,7 +261,7 @@ public class SampleController {
     		}
     	}
     	catch (Exception e) {
-    		messageArea1.appendText("Error. \n");
+    		messageArea1.appendText("Error. Please recheck input! \n");
     	}
     }
 
