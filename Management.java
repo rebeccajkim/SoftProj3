@@ -97,33 +97,5 @@ public class Management extends Fulltime {
 		DecimalFormat df = new DecimalFormat(pattern);
 		return super.toString() + "::" + role + " Compensation $" 
 				+ df.format(additionalComp); 
-	} 
-	
-	
-	/**
-	The method creates a string description of a management employee with the import/export database format
-	@return string description
-	*/
-	/*
-	@Override
-	public String toString() { 
-		String pattern = "###,##0.00";
-		DecimalFormat df = new DecimalFormat(pattern);
-		final static int MANAGER_CODE = 1;
-		final static int DEPARTMENT_HEAD_CODE = 2;
-		final static int DIRECTOR_CODE = 3;
-		int roleCode = 0;
-		if (role.equals("Manager")) {
-			roleCode = MANAGER_CODE;
-		} 
-		else if (role.equals("Department Head")) {
-			roleCode = DEPARTMENT_HEAD_CODE;
-		}
-		else if (role.equals("Director")) {
-			roleCode = DIRECTOR_CODE;
-		}
-		return super.toString() + "," + roleCode;
-	} 
-	*/
-	
+	} 	
 }

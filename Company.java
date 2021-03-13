@@ -322,24 +322,7 @@ public class Company { //set, process, dept
 		try {
 			FileWriter write = new FileWriter(path);
 			BufferedWriter writer = new BufferedWriter(write);
-			for (int i = 0; i < numEmployee; i++) {
-				
-				/*
-				if (emplist[i] instanceof Fulltime) {
-					if (emplist[i] instanceof Management) {
-						Management management = (Management) emplist[i];
-						writer.append("M," + management.toString() + "\n");
-					}
-					else {
-						Fulltime fulltime = (Fulltime) emplist[i];
-						writer.append("F," + fulltime.toString() + "\n");
-					}
-				else { //parttime
-					Parttime parttime = (Parttime) emplist[i];
-					writer.append("P," + parttime.toString() + "\n");
-				}
-				*/
-				
+			for (int i = 0; i < numEmployee; i++) {				
 				writer.append(emplist[i].toString() + "\n");
 			}
 			writer.close();

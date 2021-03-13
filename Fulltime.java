@@ -64,16 +64,4 @@ public class Fulltime extends Employee {
 		return super.toString() + "::Payment $" + df.format(getPayment()) + "::FULL TIME::Annual Salary $" 
 				+ df.format(annualSalary);
 	} 
-	
-	
-	/**
-	This method creates a string description of a fulltime employee with the import/export database format
-	@return string description
-	*/
-	/*
-	@Override
-	public String toString() {
-		return super.toString() + "," + annualSalary;
-	}
-	*/
 }

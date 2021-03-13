@@ -91,16 +91,4 @@ public class Parttime extends Employee {
 		return super.toString() + "::Payment $" + df.format(getPayment()) + "::PART TIME::Hourly Rate $" 
 				+ df.format(hourlyRate) + "::Hours worked this period: " + hours;
 	} 
-	
-
-	/**
-	The method creates a string description of a parttime employee with the import/export database format. 
-	@return string description
-	*/
-	/*
-	@Override
-	public String toString() { 
-		return super.toString() + "," + hourlyRate;
-	} 
-	*/
 }

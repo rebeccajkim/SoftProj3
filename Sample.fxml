@@ -31,17 +31,17 @@
                         <Text layoutX="75.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department" />
                         <TextField fx:id="name" layoutX="200.0" layoutY="14.0" prefHeight="25.0" prefWidth="219.0" />
                         <Text layoutX="78.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Hired" />
-                        <RadioButton fx:id="FullTimeID" layoutX="72.0" layoutY="188.0" mnemonicParsing="false" text="Full Time">
+                        <RadioButton fx:id="FullTimeID" layoutX="72.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#fullClick" text="Full Time">
                            <toggleGroup>
                               <ToggleGroup fx:id="empType" />
                            </toggleGroup></RadioButton>
-                        <RadioButton fx:id="PartTimeID" layoutX="218.0" layoutY="188.0" mnemonicParsing="false" text="Part Time" toggleGroup="$empType" />
-                        <RadioButton fx:id="ManagementID" layoutX="365.0" layoutY="188.0" mnemonicParsing="false" text="Management" toggleGroup="$empType" />
+                        <RadioButton fx:id="PartTimeID" layoutX="218.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#partClick" text="Part Time" toggleGroup="$empType" />
+                        <RadioButton fx:id="ManagementID" layoutX="365.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#mgmtClick" text="Management" toggleGroup="$empType" />
                         <Text layoutX="71.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Annual Salary" />
                         <TextField fx:id="annSal" layoutX="200.0" layoutY="227.0" prefHeight="25.0" prefWidth="219.0" />
                         <Text layoutX="69.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hours Worked" />
                         <TextField fx:id="hrsWorked" layoutX="199.0" layoutY="287.0" prefHeight="25.0" prefWidth="71.0" />
-                        <Text layoutX="299.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate" />
+                        <Text layoutX="290.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$Rate$" />
                         <TextField fx:id="rate" layoutX="345.0" layoutY="287.0" prefHeight="25.0" prefWidth="75.0" />
                         <RadioButton fx:id="managerID" layoutX="50.0" layoutY="346.0" mnemonicParsing="false" text="Manager">
                            <toggleGroup>
@@ -73,7 +73,7 @@
                         <Button fx:id="printDep" layoutX="211.0" layoutY="158.0" mnemonicParsing="false" onAction="#printByDept" text="PRINT BY DEP" />
                         <Button fx:id="printDate" layoutX="207.0" layoutY="234.0" mnemonicParsing="false" onAction="#printByDate" text="PRINT BY DATE" />
                         <Button fx:id="importButton" layoutX="52.0" layoutY="117.0" mnemonicParsing="false" onAction="#importFile" text="IMPORT" />
-                        <Button fx:id="exportButton" layoutX="52.0" layoutY="200.0" mnemonicParsing="false" text="EXPORT" />
+                        <Button fx:id="exportButton" layoutX="52.0" layoutY="200.0" mnemonicParsing="false" onAction="#exportFile" text="EXPORT" />
                      </children>
                   </AnchorPane>
             </content>
