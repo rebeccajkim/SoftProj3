@@ -413,6 +413,7 @@ public class SampleController {
     	}
     }
     
+    @FXML
     /**
     The method exports the database from the file chosen for the data to be saved to after the Export button is pressed.
     @param event of button pressed
